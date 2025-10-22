@@ -1,0 +1,589 @@
+<!DOCTYPE html> 
+<html lang="en"> 
+<head> 
+    <title>Ofrenda</title>
+</head>
+<body>
+    
+<canvas id="myCanvas">
+    <!--El elemento HTML canvas se puede utilizar para dibujar gráficos a través de 
+        secuencias de comandos (por lo general JavaScript ).-->
+        scene.add(camera);
+
+    const size = {
+
+        width: window.innerWidth,
+        height: window.innerHeight,
+
+    }
+
+    const canvas = document.getElementById('myCanvas');
+
+    window.addEventListener('resize', () => {
+
+        size.width = window.innerWidth;
+        size.height = window.innerHeight;
+        
+        camera.aspect= size.width / size.height;
+        camera.updateProjectionMatrix();
+        
+        renderer.setSize(size.width, size.height);
+
+    })
+</canvas>
+
+<!-- Aquí va todo el código de three.js -->
+<!-- script type="importmap" importa las librerías necesarias para three.js-->
+<script type="importmap"> 
+    {
+        "imports":{
+            "three": "./js/three.module.js",
+            "three/OrbitControls": "./js/OrbitControls.js" 
+        }
+}
+</script>
+<script type="module"> 
+//🗃️🗃️ Mandar llamar a la librería
+    import * as THREE from 'three'; 
+    import {OrbitControls} from 'three/OrbitControls';
+    console.log(OrbitControls);
+
+    import VL1 from './Objetos/VELADORA.js';
+    import mj from './Objetos/Cuadro.js';
+    import cd from './Objetos/Piramide.js';
+    import cl from './Objetos/Calaverita 1.js';
+    import cg from './Objetos/Caguama.js';
+    import jg from './Objetos/Cuadro2.js';
+    import pi from './Objetos/Cuadro3.js';
+    import sg from './Objetos/Cuadro4.js';
+    import mf from './Objetos/Cuadro5.js';
+    import mm from './Objetos/Cuadro6.js';
+    import p from './Objetos/Plano.js';
+    import x from './Objetos/Xempasuchil.js';
+    import pn from './Objetos/Pan.js';
+    import cop from './Objetos/Copal.js';
+   
+
+//🕹️🕹️ Renderer - Realiza una conexión entre el código y el canvas
+    var renderer = new THREE.WebGLRenderer({
+    canvas: document.getElementById('myCanvas'), antialias: true,
+    });
+    renderer.setPixelRatio(window.decivePixelRatio);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(0x70707C);
+
+
+// 🎬 Creando nueva escena - Es el espacio donde se colocan los objetos
+    var scene = new THREE.Scene();
+
+//🎥🎥 Agregar una cámara de perspectiva
+    var camera = new THREE.PerspectiveCamera(70,window.innerWidth / window.innerHeight,0.1,2000
+      );
+    scene.add(camera);
+
+    //Settings de la cámara
+    camera.position.set(95,220,300);
+
+    // Añadiendo los OrbitControls
+    var controls = new OrbitControls(camera, renderer.domElement);
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+
+    var light1= new THREE.AmbientLight(0xFAA533,0.8);
+    light1.position.set(50,50,50);
+    scene.add(light1);
+
+//Puntos de luz
+//veladora1
+var pl01= new THREE.PointLight(0xFF9013,2,20,0.3);
+pl01.position.set(75,95,40);
+scene.add(pl01);
+var helper01= new THREE.PointLightHelper(pl01);
+scene.add(helper01);
+//veladora2
+var pl02= new THREE.PointLight(0xFF9013,2,20,0.3);
+pl02.position.set(75,75,60);
+scene.add(pl02);
+var helper02= new THREE.PointLightHelper(pl02);
+scene.add(helper02);
+//veladora3
+var pl03= new THREE.PointLight(0xFF9013,2,20,0.3);
+pl03.position.set(75,50,80);
+75,50,80
+scene.add(pl03);
+var helper03= new THREE.PointLightHelper(pl03);
+scene.add(helper03);
+//veladora4
+var pl04= new THREE.PointLight(0xFF9013,2,20,0.3);
+pl04.position.set(75,27,100);
+75,23,100
+scene.add(pl04);
+var helper04= new THREE.PointLightHelper(pl04);
+scene.add(helper04);
+//luz de fondo
+var pl05= new THREE.PointLight(0x3B0270,2,20,0.0);
+pl05.position.set(75,90,-80);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+
+//pasillo luz
+//1
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(10,8,150);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//2
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(10,8,180);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//3
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(10,8,210);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//4
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(10,8,240);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//5
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(10,8,270);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//6
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(10,8,300);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//segundafila
+//1
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(140,8,150);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//2
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(140,8,180);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//3
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(140,8,210);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//4
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(140,8,240);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//5
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(140,8,270);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//6
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(140,8,300);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//cruz luz
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(75,8,150);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(75,8,180);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(75,8,210);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(75,8,240);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(50,8,180);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+//
+var pl05= new THREE.PointLight(0xFF9013,2,20,0.4);
+pl05.position.set(100,8,180);
+scene.add(pl05);
+var helper05= new THREE.PointLightHelper(pl05);
+scene.add(helper05);
+
+
+//fondo
+     var loader = new THREE.TextureLoader();
+    var bgTexture = loader.load('./image/fondo.jpg');
+    scene.background = bgTexture; 
+
+// Espacio para colocar los objetos
+    //Plano
+    var geometry01 = new THREE.BoxGeometry(800,0.5,800);
+var material01 = new THREE.MeshLambertMaterial({
+    color:0x3B1E54, side:THREE.DoubleSide
+});
+
+var mesh01=new THREE.Mesh(geometry01,material01);
+mesh01.position.set(35,0,0);
+scene.add(mesh01);  
+
+      //VELADORA
+var escenario01 = VL1 ({x:0,y:0,z:0});
+scene.add (escenario01);
+
+escenario01.position.set(75,89,40);
+escenario01.scale.set(1,1,1);
+
+
+   // Cuadro
+   var escenario02 = mj ({x:0,y:0,z:0});
+scene.add (escenario02);
+
+escenario02.position.set(50,92,30);
+escenario02.scale.set(.6,.6,.6);
+
+//Piramide
+var escenario03 = cd ({x:0,y:0,z:0});
+scene.add (escenario03);
+
+escenario03.position.set(0,25,0);
+escenario03.scale.set(1.5,1.5,1.5);
+
+ //Calaverita
+ var escenario04 = cl ({x:0,y:0,z:0});
+scene.add (escenario04);
+
+escenario04.position.set(100,23,100);
+100,23,100
+escenario04.scale.set(1.5,1.5,1.5);
+escenario04.rotation.set(0,4.5,0);
+//Calaverita2
+ var escenario04 = cl ({x:0,y:0,z:0});
+scene.add (escenario04);
+
+escenario04.position.set(158,23,60);
+100,23,60
+escenario04.scale.set(1.5,1.5,1.5);
+escenario04.rotation.set(0,7,0);
+
+
+//Caguama
+var escenario05 = cg ({x:0,y:0,z:0});
+scene.add (escenario05);
+escenario05.position.set(140,25,100);
+140
+escenario05.scale.set(1.5,1.5,1.5);
+
+//Caguama2
+var escenario06 = cg ({x:0,y:0,z:0});
+scene.add (escenario06);
+escenario06.position.set(10,25,100);
+escenario06.scale.set(1.5,1.5,1.5);
+
+//Caguama3
+var escenario05 = cg ({x:0,y:0,z:0});
+scene.add (escenario05);
+escenario05.position.set(7,46,60);
+escenario05.scale.set(1.5,1.5,1.5);
+escenario05.rotation.set(0,4.5,0);
+//Caguama4
+var escenario05 = cg ({x:0,y:0,z:0});
+scene.add (escenario05);
+escenario05.position.set(7,46,60);
+escenario05.scale.set(1.5,1.5,1.5);
+escenario05.rotation.set(0,4,0);
+//Caguama5
+var escenario05 = cg ({x:0,y:0,z:0});
+scene.add (escenario05);
+escenario05.position.set(130,65,40);
+130,65,40
+escenario05.scale.set(1.5,1.5,1.5);
+escenario05.rotation.set(0,5,0);
+
+//veladora2
+var escenario07 = VL1 ({x:0,y:0,z:0});
+scene.add (escenario07);
+
+escenario07.position.set(75,67,60);
+75,89,40
+escenario07.scale.set(1,1,1);
+
+//veladora3
+var escenario08 = VL1 ({x:0,y:0,z:0});
+scene.add (escenario08);
+
+escenario08.position.set(75,45,80);
+75,89,40
+escenario08.scale.set(1,1,1);
+//veladora4
+var escenario09 = VL1 ({x:0,y:0,z:0});
+scene.add (escenario09);
+
+escenario09.position.set(75,23,100);
+75,89,40
+escenario09.scale.set(1,1,1);
+
+//Cuadro2
+var escenario10 = jg ({x:0,y:0,z:0});
+scene.add (escenario10);
+
+escenario10.position.set(35,69,60);
+escenario10.scale.set(.6,.6,.6);
+
+//cuadro3
+var escenario10 = pi ({x:0,y:0,z:0});
+scene.add (escenario10);
+
+escenario10.position.set(110,69,60);
+escenario10.scale.set(.6,.6,.6);
+//cuadro4
+ var escenario11 = sg ({x:0,y:0,z:0});
+scene.add (escenario11);
+
+escenario11.position.set(90,91,30);
+escenario11.scale.set(.6,.6,.6);
+
+//cuadro5
+var escenario12 = mf ({x:0,y:0,z:0});
+scene.add (escenario12);
+
+escenario12.position.set(130,48,80);
+escenario12.scale.set(.6,.6,.6);
+//cuadro6
+var escenario13 = mm ({x:0,y:0,z:0});
+scene.add (escenario13);
+
+escenario13.position.set(20,48,80);
+20,48,80
+escenario13.scale.set(.6,.6,.6);
+//Plano
+var escenario14 = p ({x:0,y:0,z:0});
+scene.add (escenario14);
+
+escenario14.position.set(0,12,-150);
+escenario14.scale.set(4.5,3,2);
+
+//flor 
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(58,72,60);
+escenario15.scale.set(1.6,1.6,1.6);
+//flor2
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(95,72,60);
+900,72,60
+escenario15.scale.set(1.6,1.6,1.6);
+//flor3
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(50,52,80);
+escenario15.scale.set(1.6,1.6,1.6);
+
+//flor4
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(100,52,80);
+100,55,80
+escenario15.scale.set(1.6,1.6,1.6);
+//flor5
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(45,30,100);
+45,24,100
+escenario15.scale.set(1.6,1.6,1.6);
+
+//Pan
+var escenario15 = pn ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(30,25,100);
+30,24,100
+escenario15.scale.set(1.6,1.6,1.6);
+
+//copal
+var escenario01 = cop ({x:0,y:0,z:0});
+scene.add (escenario01);
+
+escenario01.position.set(70,110,0);
+escenario01.scale.set(2,2,2);
+
+//camino de flores
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(10,8,150);
+escenario15.scale.set(1.6,1.6,1.6);
+//2
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(10,8,180);
+escenario15.scale.set(1.6,1.6,1.6);
+//3
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(10,8,210);
+escenario15.scale.set(1.6,1.6,1.6);
+//4
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(10,8,240);
+escenario15.scale.set(1.6,1.6,1.6);
+//5
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(10,8,270);
+escenario15.scale.set(1.6,1.6,1.6);
+//6
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(10,8,300);
+escenario15.scale.set(1.6,1.6,1.6);
+//segunda 1
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(140,8,150);
+escenario15.scale.set(1.6,1.6,1.6);
+//2
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(140,8,180);
+escenario15.scale.set(1.6,1.6,1.6);
+//3
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(140,8,210);
+escenario15.scale.set(1.6,1.6,1.6);
+//4
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(140,8,240);
+escenario15.scale.set(1.6,1.6,1.6);
+//5
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(140,8,270);
+escenario15.scale.set(1.6,1.6,1.6);
+//6
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(140,8,300);
+escenario15.scale.set(1.6,1.6,1.6);
+//cruz
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(75,8,150);
+escenario15.scale.set(1.6,1.6,1.6);
+//
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(75,8,180);
+escenario15.scale.set(1.6,1.6,1.6);
+//3
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(75,8,210);
+escenario15.scale.set(1.6,1.6,1.6);
+//4
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(75,8,240);
+75,8,240
+escenario15.scale.set(1.6,1.6,1.6);
+//
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(50,8,180);
+65,8,180
+escenario15.scale.set(1.6,1.6,1.6);
+//
+var escenario15 = x ({x:0,y:0,z:0});
+scene.add (escenario15);
+
+escenario15.position.set(100,8,180);
+65,8,180
+escenario15.scale.set(1.6,1.6,1.6);
+
+//calavera grnade1
+ var escenario04 = cl ({x:0,y:0,z:0});
+scene.add (escenario04);
+
+escenario04.position.set(-80,23,100);
+-80,23,100
+escenario04.scale.set(5,5,5);
+escenario04.rotation.set(0,4.5,0);
+//calavera grnade2
+ var escenario04 = cl ({x:0,y:0,z:0});
+scene.add (escenario04);
+
+escenario04.position.set(230,23,100);
+230,23,100
+escenario04.scale.set(5,5,5);
+escenario04.rotation.set(0,4.5,0);
+
+
+//🎰🎰Rendering y animación
+    requestAnimationFrame(render);
+    function render() {
+
+    //🪄🪄 Animación - 
+
+    //🎮🎮Actualización del OrbitControls para generar la suavidad de movimiento
+    controls.update();
+
+    //Llamado para renderizar y volver a llamar a la misma función (render)
+    renderer.render(scene, camera);
+    requestAnimationFrame(render);
+    }
+</script>
+</body>
+</html>
